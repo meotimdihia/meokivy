@@ -12,6 +12,7 @@ class FormLogin(BoxLayout):
 		super(FormLogin, self).__init__(*kargs)
 
 class TestApp(App):
+	
 
 	def build(self):
 		return FormLogin()
