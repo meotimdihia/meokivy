@@ -8,8 +8,12 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty
 from kivy.network.urlrequest import UrlRequest
+from kivy.uix.tabbedpanel import TabbedPanel, TabbedPanelHeader
 import urllib
 import sys
+
+class Dashboard(TabbedPanel):
+    pass
 
 class FormLogin(FloatLayout):
 
@@ -19,7 +23,7 @@ class FormLogin(FloatLayout):
         super(FormLogin, self).__init__(*kargs)
 
     def login(self):
-    	print 'test'
+        print 'test'
         username = self.ids.in_username.text
         password = self.ids.in_password.text
         
@@ -37,11 +41,16 @@ class FormLogin(FloatLayout):
         req = UrlRequest('https://graph.facebook.com/meotimdihia', on_success=success, req_body=params,
                 req_headers=headers)
 
+        self.showDashboard()
+
+    def showDashboard(self):
+        self.clear_widgets()
+        Dashboard()
+
 class TestApp(App):
-	
 
     def build(self):
-        return FormLogin()
+        return Dashboard()
 
 if __name__ == '__main__':
     TestApp().run()
