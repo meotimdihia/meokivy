@@ -45,12 +45,14 @@ class FormLogin(FloatLayout):
 
     def showDashboard(self):
         self.clear_widgets()
-        Dashboard()
+        self.tab = tab = Dashboard()
+        self.add_widget(tab)
 
 class TestApp(App):
-
+    
     def build(self):
-        return Dashboard()
+        
+        return FormLogin()
 
 if __name__ == '__main__':
     TestApp().run()
