@@ -50,7 +50,7 @@ class FormLogin(FloatLayout):
 class TestApp(App):
 
     def build(self):
-        return Dashboard()
+        return FormLogin()
 
 if __name__ == '__main__':
     TestApp().run()
