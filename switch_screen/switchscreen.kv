@@ -1,0 +1,82 @@
+#:kivy 1.7.2
+#:import random random.random
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
+#:import WipeTransition kivy.uix.screenmanager.WipeTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<FormLoginScreen>
+    hue: random()
+    canvas:
+        Color:
+            hsv: self.hue, .5, .3
+        Rectangle:
+            size: self.size
+	spacing: 50
+	padding: 50
+	orientation: 'vertical'
+	Label:
+		font_size: 30
+		size_hint: .5, .1
+		text: "Username:"
+		halign: 'left'
+		halign: 'left'
+		text_size: self.size
+		pos_hint: {'center_x': .5, 'center_y': .8}
+	TextInput:
+		id: in_username
+		font_size: 30
+		size_hint: .5, .1
+		multiline: False
+		pos_hint: {'center_x': .5, 'center_y': .7}
+	Label:
+		font_size: 30
+		size_hint: .5, .1
+		text: "Password:"
+		halign: 'left'
+		text_size: self.size
+		pos_hint: {'center_x': .5, 'center_y': .6}
+	TextInput:
+		id: in_password
+		size_hint: .5, .1
+		font_size: 30
+		password: True
+		multiline: False
+		pos_hint: {'center_x': .5, 'center_y': .5}
+	Button:
+		id: btn_submit
+		on_release: root.login()
+		text: '[b]Login[/b]'
+		markup: True
+		size_hint: .5, .1
+		font_size: 30
+		multiline: False
+		pos_hint: {'center_x': .5, 'center_y': .38}
+
+<DashboardScreen>:
+    hue: random()
+    canvas:
+        Color:
+            hsv: self.hue, .5, .3
+        Rectangle:
+            size: self.size
+	TabbedPanel
+		do_default_tab: False
+
+		TabbedPanelItem:
+			text: "Friends"
+
+			Label:
+				
+			TextInput:
+				font_size: 30
+				size_hint: .5, .1
+				pos_hint: {'center_x': .5, 'center_y': .7}
+
+		TabbedPanelItem:
+			text: "Guide"
+			TextInput:
+				font_size: 30
+				size_hint: .5, .1
+				multiline: False
+				pos_hint: {'center_x': .5, 'center_y': .7}
